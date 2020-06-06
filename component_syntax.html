@@ -1,0 +1,25 @@
+<!-- Component Syntax-->
+
+<div id="app">
+    <first-component></first-component>
+</div>
+
+<!-- components need their own data, served via functions -->
+<script>
+    Vue.component('first-component', {
+        tempalte: '<div>Hello from Component {{message}} </div>',
+
+        data: function() {
+            return {
+                message: 'Hello from Data'
+            }
+        }
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+
+        }
+    });
+</script>

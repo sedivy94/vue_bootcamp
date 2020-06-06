@@ -1,0 +1,43 @@
+<!-- Slots + Props -->
+
+<!-- render the slot with text-size argument -->
+<size-title text-size="25">Vue Bootcamp</size-title>
+
+<script>
+    Vue.component('size-title', {
+        props: ['textSize'], // remember, camelCase!
+        // style the template such that it's driven by the props
+        template: '<div :style="{ fontSize: textSize + \'px\'}"><slot></slot></div>'
+    });
+</script>
+
+<!-- render the inline list object with a header -->
+<my-list list="{ names: ['John', 'Jane', 'Mary'] }">My List of Names</my-list>
+
+<script>
+    Vue.component('my-list', {
+        props: ['list'], // matches inline property field
+        // drive the template data with a for-loop
+        template: '<div><h1><slot></slot></h1><ul><li v-for="name in list.names"></ul></div>'
+    });
+</script>
+
+<my-site>
+    <template v-slot:header>
+        My Website Header Here
+    </template>
+    <template v-slot:body>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+    </template>
+    <template v-slot:footer>
+        &copy; 2020 Copyright
+    </template>
+</my-site>
+
+<script>
+    Vue.component('my-site', {
+        props: ['list'], // matches inline property field
+        // drive the template data with a for-loop
+        template: '<div><header><slot name="header"></slot></header><body><slot name="body"></slot></body><footer><slot name="footer"></slot></footer></div>'
+    });
+</script>

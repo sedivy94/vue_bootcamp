@@ -1,0 +1,23 @@
+<!-- Component Props-->
+
+<div id="app" class="bg-blue-200 w-full h-screen">
+    <!-- link property must be bound to vue -->
+    <title-text user-id="123" 
+        v-bind:link="{ title: 'Home', link: '#home' }">
+    </title-text>
+</div>
+
+<script>
+    Vue.component('title-text', {
+        template: '<div>{{ link.title }}</div>',
+
+        props: ['userID', 'link'] // does not accept kebab-case, use camelCase
+    });
+    
+    var app = new Vue({
+        el: '#app',
+        data: {
+            
+        }
+    });
+</script>

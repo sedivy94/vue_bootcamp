@@ -1,0 +1,19 @@
+<!-- Single File Components -->
+
+<!--
+    compartmentalizing into component files 
+    eliminates all instances of vue
+-->
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div id="app">
+            <test-component></test-component>
+        </div>
+        <!-- instead we import a bundled js resource -->
+        <script src="single_file_components.pack.js"></script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!-- Looping Basics -->
+
+<!-- prints 1 to n -->
+<div v-for="i in n">{{ i }}</div>
+
+<!-- prints k to n-1 -->
+<div v-for="(i,k) in n">{{ k }}</div>
+
+<!-- prints indeces in array -->
+<div v-for="index in array">{{ index }}</div>
+
+<!-- prints object fields in list -->
+<div v-for="item in list">{{ item.name }} { item.age }} </div>
+
+<!-- add items to drop-down menu -->
+<select>
+    <option>Please select one</option>
+    <option v-for="item in list" value="item.age" v-text="item.name"></option>
+</select>
+
+<!-- using template syntax -->
+<template v-for="item in list">
+    <p>{{ item.name }}</p>
+    <p>{{ item.age }}</p>
+</template>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            array: [
+                'item 1', 'item 2', 'item 3'
+            ],
+            list: [
+                    { name: 'John', age: 25 },
+                    { name: 'Jane', age: 20 },
+            ],
+        }
+    });
+</script>

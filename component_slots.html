@@ -1,0 +1,22 @@
+<!-- Component Slots-->
+
+<div id="app" class="bg-blue-200 w-full h-screen">
+    <title-text>My Title
+
+        <template v-slot:something>Another Text</template>
+    </title-text>
+</div>
+
+<!-- a slot must be defined for each piece of data outside of a component -->
+<script>
+    Vue.component('title-text', {
+        template: '<div><h1><slot></slot></h1><slot name="something"></slot></div>'
+    });
+    
+    var app = new Vue({
+        el: '#app',
+        data: {
+            
+        }
+    });
+</script>

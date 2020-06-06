@@ -1,0 +1,69 @@
+<!-- Class Bindings -->
+
+<!-- styles in header -->
+<head>
+    <style>
+        .danger {
+            color: red;
+        }
+        .active {
+            color: green;
+        }
+    </style>
+</head>
+
+<!-- inline styling -->
+<div v-bind:class="{ 'danger': isDanger }" class="font-bold">Text</div>
+
+<!-- another example -->
+<div :class="{ 'danger': isDanger, 'font-bold': isImportant }">Text</div>
+<!-- remember that ':' is also shorthand for 'v-bind:' -->
+
+<!-- styling with data property -->
+<div :class="myDiv">Text</div>
+
+<!-- styling with function -->
+<div :class="styling">Text</div>
+
+<!-- styling with array -->
+<div :class="[activeClass]">Text</div>
+<!-- remember this is called 'bracket notation' -->
+
+<!-- styling with ternary argument -->
+<div :class="[isActive ? activeClass : errorClass]">Text</div>
+
+<!-- combining array notation and object notation -->
+<div :class="[{ active: isActive}, 'font-bold']">Text</div>
+
+<!-- binding inline styles -->
+<div :style="{ color: myColor, fontSize: '50px' }"></div>
+
+<!-- binding inline style to data property -->
+<div :style="myStyles">Text</div>
+
+<!-- array syntax -->
+<div :style="[myStyles]">Text</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            isDanger: true,
+            isImportant: true,
+            myDiv: { 'danger': true, 'font-bold': true },
+            isActive: true,
+            activeClass: 'active font-bold text-xl',
+            errorClass: 'danger',
+            myColor: 'orange',
+            myStyles: { color: 'red', fontSize: 100 + 'px' }
+        },
+        computed: {
+            styling: function() {
+                return {
+                    'danger': 25 > 5,
+                    'font-bold': 100 > 25
+                }
+            }
+        }
+    });
+</script>
